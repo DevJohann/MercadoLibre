@@ -7,7 +7,6 @@ public class Application {
 		Cliente cliente = new Cliente();
 		Administrador admin = new Administrador();
 		
-		System.out.println("hello word");
 	}
 
 }
