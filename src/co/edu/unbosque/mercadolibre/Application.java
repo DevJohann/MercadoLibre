@@ -6,6 +6,8 @@ public class Application {
 		// TODO Auto-generated method stub
 		Cliente cliente = new Cliente();
 		Administrador admin = new Administrador();
+		
+		System.out.println("hello word");
 	}
 
 }
