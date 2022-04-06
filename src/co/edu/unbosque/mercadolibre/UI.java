@@ -27,9 +27,9 @@ public class UI {
 			switch(respuestaMenuPrincipal){
 			case 1:
 				System.out.println("Ingrese el nombre de administrador:");
-				admin.usrName = scan.nextLine();
+				admin.setUsrName(scan.nextLine());
 				System.out.println("Ingrese su contraseña:");
-				admin.password = scan.nextLine();
+				admin.setPassword(scan.nextLine());
 				break;
 			case 2:
 				break;
