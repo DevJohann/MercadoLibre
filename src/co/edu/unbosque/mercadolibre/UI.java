@@ -27,7 +27,7 @@ public class UI {
 			
 			switch(respuestaMenuPrincipal){
 			case 1:
-				System.out.println("Ingrese el nombre de administrador:");
+				System.out.println("Ingrese el usuario de administrador:");
 				admin.setUsrName(scan.next());
 				System.out.println("Ingrese su contraseña:");
 				admin.setPassword(scan.next());
@@ -51,7 +51,9 @@ public class UI {
 							admin.getCategoriasActuales();
 							break;
 						case 2:
-							//admin.newProveedor();
+							admin.newProveedor();
+							admin.getProveedoresActuales();
+							break;
 						}
 					}while(eleccionMenuAdministrador != 0);
 						
