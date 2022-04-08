@@ -23,6 +23,7 @@ public class UI {
 			System.out.println("1. Administrador");
 			System.out.println("2. Cliente");
 			System.out.println("0. Salir");
+			System.out.print("Elija: ");
 			respuestaMenuPrincipal = scan.nextInt();
 			
 			switch(respuestaMenuPrincipal){
@@ -43,6 +44,7 @@ public class UI {
 						System.out.println("2. Agregar proveedor"); //Mostrar las opciones de este menu
 						System.out.println("3. Agregar producto");
 						System.out.println("0. Volver");
+						System.out.print("Elija: ");
 						eleccionMenuAdministrador = scan.nextInt(); //Recoger la opción que elija el usuario
 						
 						switch(eleccionMenuAdministrador) {
@@ -54,6 +56,9 @@ public class UI {
 							admin.newProveedor();
 							admin.getProveedoresActuales();
 							break;
+						case 3: 
+							admin.newProduct();
+							admin.getProductosActuales();
 						}
 					}while(eleccionMenuAdministrador != 0);
 						
