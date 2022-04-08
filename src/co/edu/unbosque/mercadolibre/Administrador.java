@@ -9,21 +9,23 @@ public class Administrador {
 	
 	ArrayList<Categoria> categoriasLista = new ArrayList<Categoria>();
 	Scanner scan = new Scanner(System.in);
-
+	ArrayList<Proveedor> proveedoresLista = new ArrayList<Proveedor>();
 	
 	//Métodos
 	
 	public void newCategory() {
-		System.out.println("Ingrese el nombre de la nueva categoría: ");
-		String nombreCategoriaNueva = scan.nextLine();
 		System.out.println("Ingrese el tipo de categoría: ");
 		String tipoCategoriaNueva = scan.nextLine();
 		
-		categoriasLista.add(new Categoria(nombreCategoriaNueva, tipoCategoriaNueva));
+		categoriasLista.add(new Categoria(tipoCategoriaNueva));
 		
 		
 	}
-	public void newDistributor(String nombre) {
+	public void newProveedor(String nombre) { // nuevo...
+		System.out.println("Ingrese el nuevo Proveedor: ");
+		String proveedorNuevo = scan.nextLine();
+		
+		//proveedoresLista.add(new Proveedor(proveedorNuevo));
 		
 	}
 	public void newProduct(String nombre) { //De pronto el producto lo debe crear el proveedor
@@ -74,5 +76,11 @@ public class Administrador {
 	}
 	public void getInventory(Proveedor proveedor) { // En vez de String proveedor, se puso Proveedor proveedor
 		
+	}
+	public void getCategoriasActuales() {
+		for(int i = 0; i < categoriasLista.size(); i++) { //Este bucle recorre el arrayList de categoriasLista, para mostrar las categorías que hayamos añadido hasta el momento
+			System.out.println("Las categorías actuales son: " + categoriasLista.get(i).getTipoDeCategoria()); //Este system.out.println muestra el nombre de la categoría
+			System.out.println();
+		}
 	}
 }

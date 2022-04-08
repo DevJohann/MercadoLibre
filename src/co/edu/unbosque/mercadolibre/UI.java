@@ -32,22 +32,26 @@ public class UI {
 				System.out.println("Ingrese su contraseña:");
 				admin.setPassword(scan.next());
 				
-				if(admin.getPassword().equals("1234")) {
+				if(admin.getPassword().equals("1234") && admin.getUsrName().equals("admin1234")) {
 					//Acceder al sistema
 					System.out.println("Bienvenido Administrador!");
+					System.out.println();
 				
 					do {
 						System.out.println("Opciones:");
 						System.out.println("1. Agregar categoría");
-						System.out.println("2. Agregar proveedor");
+						System.out.println("2. Agregar proveedor"); //Mostrar las opciones de este menu
 						System.out.println("3. Agregar producto");
 						System.out.println("0. Volver");
-						eleccionMenuAdministrador = scan.nextInt();
+						eleccionMenuAdministrador = scan.nextInt(); //Recoger la opción que elija el usuario
 						
 						switch(eleccionMenuAdministrador) {
 						case 1: 
 							admin.newCategory();
+							admin.getCategoriasActuales();
 							break;
+						case 2:
+							//admin.newProveedor();
 						}
 					}while(eleccionMenuAdministrador != 0);
 						
