@@ -1,15 +1,26 @@
 package co.edu.unbosque.mercadolibre;
+import co.edu.unbosque.mercadolibre.*;
+import java.util.*;
 
 public class Administrador {
 
 	private String usrName; //Usuario: admin1234
 	private String password; //Contraseña: 1234
 	
-	//No deja poner un if >:(
+	ArrayList<Categoria> categoriasLista = new ArrayList<Categoria>();
+	Scanner scan = new Scanner(System.in);
+
 	
 	//Métodos
 	
-	public void newCategory(String nombre) {
+	public void newCategory() {
+		System.out.println("Ingrese el nombre de la nueva categoría: ");
+		String nombreCategoriaNueva = scan.nextLine();
+		System.out.println("Ingrese el tipo de categoría: ");
+		String tipoCategoriaNueva = scan.nextLine();
+		
+		categoriasLista.add(new Categoria(nombreCategoriaNueva, tipoCategoriaNueva));
+		
 		
 	}
 	public void newDistributor(String nombre) {
@@ -57,6 +68,9 @@ public class Administrador {
 	public String getUsrName() {
 		return this.usrName;
 		
+	}
+	public String getPassword() {
+		return this.password;
 	}
 	public void getInventory(Proveedor proveedor) { // En vez de String proveedor, se puso Proveedor proveedor
 		
