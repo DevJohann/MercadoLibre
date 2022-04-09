@@ -9,6 +9,7 @@ public class Administrador {
 	private boolean hayProveedores;
 	private boolean hayProductos;
 	private boolean nombreProveedorCoincide;
+	private boolean existeProducto;
 	
 	Scanner scan = new Scanner(System.in);
 	
@@ -48,7 +49,7 @@ public class Administrador {
 		else {
 			System.out.println("Ingrese el nombre del proveedor: ");
 			String nombreProveedorParaProducto = scan.next();
-			for(Proveedor proveedor : proveedoresLista) {
+			for(Proveedor proveedor : proveedoresLista) { //Comprobar que el proveedor exista
 				if(proveedor.getNombre().toLowerCase().equals(nombreProveedorParaProducto.toLowerCase())) {
 					nombreProveedorCoincide = true;
 				}
@@ -57,15 +58,20 @@ public class Administrador {
 				}
 			}
 			
-			if(nombreProveedorCoincide) {
+			if(nombreProveedorCoincide) { //Si el proveedor existe
 				System.out.println("Ingrese el nombre del producto: ");
 				String nombreProductoNuevo = scan.next();
 				System.out.println("Ingrese el precio del producto: ");
+				scan.nextLine(); //Se agregó esto para evitar que se salte el scan anterior
 				double precioProductoNuevo = scan.nextDouble();
 				System.out.println("Ingrese la cantidad del producto: ");
+				scan.nextLine(); //Evitar que se salte el scan anterior
 				int cantidadProductoNuevo = scan.nextInt();
 				
 				productoLista.add(new Producto(nombreProductoNuevo, precioProductoNuevo, cantidadProductoNuevo));
+			}
+			else if(nombreProveedorCoincide == false) {
+				System.out.println("Error, el proveedor no está registrado");
 			}
 		}
 		
@@ -124,6 +130,7 @@ public class Administrador {
 			hayProductos = true;
 			System.out.println("Los productos actuales son: ");
 			for(int i = 0; i < productoLista.size(); i++) {
+				//System.out.println("Producto: " + productoLista.get(i).getNombre() + "	" + getCantidadProducto(productoLista.get(i).getNombre())); No funciona el getCantidadProducto, primer imprime el valor y luego lo asigna, entonces devuelve 0
 				System.out.println("Producto: " + productoLista.get(i).getNombre());
 			}
 		}
@@ -140,6 +147,7 @@ public class Administrador {
 		System.out.println();
 	}
 	
+	
 	public void getProveedoresActuales() {
 		
 		if(proveedoresLista.size() == 0) {
@@ -154,12 +162,20 @@ public class Administrador {
 
 			}
 		}
-		
-		
-		
-		
 		System.out.println();
 	}
-
 	
+	/*
+	public int getCantidadProducto(String nombreProductoAConsultar) {
+	
+		int cantidadProd = 0;
+		for(Producto producto : productoLista) {
+			if(producto.getNombre().toLowerCase().contains(nombreProductoAConsultar)) {
+				cantidadProd = producto.getCantidad();
+			}
+		}
+		
+		return cantidadProd; 
+	}
+	*/
 }

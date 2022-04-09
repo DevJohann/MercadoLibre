@@ -28,6 +28,9 @@ public class Producto {
 		return this.nombre;
 	}
 	
+	public int getCantidad() { //Método para recoger la cantidad de producto que hay y mostrarla al lado del nombre del producto
+		return this.cantidad;
+	}
 	
 
 }
