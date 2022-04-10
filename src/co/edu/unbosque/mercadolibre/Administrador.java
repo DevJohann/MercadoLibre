@@ -28,19 +28,36 @@ public class Administrador {
 		
 	}
 	public void newProveedor() { // nuevo...
-		System.out.println("Ingrese el nombre del nuevo Proveedor: ");
-		String proveedorNuevoNombre = scan.next();
-		System.out.println("Ingrese la dirección: ");
-		String proveedorNuevoDireccion = scan.next();
-		System.out.println("Ingrese el teléfono: ");
-		String proveedorNuevoTelefono = scan.next();
-		System.out.println("Que categoría ofrece: ");
-		String proveedorNuevoCategoria = scan.next();
-		System.out.println("Ingrese la cantidad que tiene disponible: ");
-		int proveedorNuevoCantidad = scan.nextInt();
-		
-		proveedoresLista.add(new Proveedor(proveedorNuevoNombre, proveedorNuevoDireccion, proveedorNuevoTelefono, proveedorNuevoCategoria, proveedorNuevoCantidad));
-	
+		if(categoriasLista.size() == 0) { //Si la lista de categorías está vacía
+			System.out.println("Error, primero debe crear por lo menos una categoría");
+		}
+		else {
+			System.out.println("Ingrese el nombre del nuevo Proveedor: ");
+			String proveedorNuevoNombre = scan.next();
+			System.out.println("Ingrese la dirección: ");
+			String proveedorNuevoDireccion = scan.next();
+			System.out.println("Ingrese el teléfono: ");
+			String proveedorNuevoTelefono = scan.next();
+			System.out.println("Que categoría ofrece: ");
+			String proveedorNuevoCategoria = scan.next();
+			boolean categoriaExiste = false;
+			for(Categoria catAnalizar : categoriasLista) { //Mirar si la categoría ingresada existe
+				if(catAnalizar.getTipoDeCategoria().toLowerCase().equals(proveedorNuevoCategoria)){
+					System.out.println("Ingrese la cantidad que tiene disponible: "); //Cantidad de que? O.o
+					int proveedorNuevoCantidad = scan.nextInt();
+					proveedoresLista.add(new Proveedor(proveedorNuevoNombre, proveedorNuevoDireccion, proveedorNuevoTelefono, proveedorNuevoCategoria, proveedorNuevoCantidad));
+					categoriaExiste = true;
+					break;
+				}
+				else {
+					categoriaExiste = false;
+				}
+			}
+			if(categoriaExiste == false) {
+				System.out.println("Error, debe ingresar una categoría existente");
+			}
+
+		}
 	}
 	public void newProduct() { //De pronto el producto lo debe crear el proveedor
 		if(proveedoresLista.size() == 0) {
@@ -132,6 +149,7 @@ public class Administrador {
 			for(int i = 0; i < productoLista.size(); i++) {
 				//System.out.println("Producto: " + productoLista.get(i).getNombre() + "	" + getCantidadProducto(productoLista.get(i).getNombre())); No funciona el getCantidadProducto, primer imprime el valor y luego lo asigna, entonces devuelve 0
 				System.out.println("Producto: " + productoLista.get(i).getNombre());
+	
 			}
 		}
 		
@@ -165,7 +183,7 @@ public class Administrador {
 		System.out.println();
 	}
 	
-	/*
+	/* No sirve :)
 	public int getCantidadProducto(String nombreProductoAConsultar) {
 	
 		int cantidadProd = 0;

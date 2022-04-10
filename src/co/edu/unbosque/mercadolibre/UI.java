@@ -43,6 +43,7 @@ public class UI {
 						System.out.println("1. Agregar categoría");
 						System.out.println("2. Agregar proveedor"); //Mostrar las opciones de este menu
 						System.out.println("3. Agregar producto");
+						System.out.println("4. Consultas");
 						System.out.println("0. Volver");
 						System.out.print("Elija: ");
 						eleccionMenuAdministrador = scan.nextInt(); //Recoger la opción que elija el usuario
@@ -76,7 +77,7 @@ public class UI {
 			case 2:
 				break;
 			case 0:
-				System.out.println("Ha abandonado nuestro software");
+				System.out.println("Ha abandonado nuestro software, los datos no se guardarán");
 				break;
 			default:
 				System.out.println("Error, opción invalida");
