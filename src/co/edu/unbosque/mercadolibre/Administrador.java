@@ -92,11 +92,12 @@ public class Administrador {
 				System.out.println("Ingrese la cantidad del producto: ");
 				scan.nextLine(); //Evitar que se salte el scan anterior
 				int cantidadProductoNuevo = scan.nextInt();
-				
-				productoLista.add(new Producto(nombreProductoNuevo, precioProductoNuevo, cantidadProductoNuevo));
+				System.out.println("Ingresa el tiempo de entrega: ");
+				int tiempoDeEntrega = scan.nextInt();
+				productoLista.add(new Producto(nombreProductoNuevo, precioProductoNuevo, cantidadProductoNuevo, tiempoDeEntrega));
 				for(Proveedor proveedor : proveedoresLista) {
 					if(proveedor.getNombre().toLowerCase().equals(nombreProveedorObjetivo)) {
-						proveedor.setProducto(new Producto(nombreProductoNuevo, precioProductoNuevo, cantidadProductoNuevo));
+						proveedor.setProducto(new Producto(nombreProductoNuevo, precioProductoNuevo, cantidadProductoNuevo, tiempoDeEntrega));
 						break;
 					}
 				}
@@ -127,10 +128,10 @@ public class Administrador {
 				else {
 					System.out.println();
 					System.out.println("Stock: ");
-					for (Proveedor a : proveedoresLista) {
+					for (Proveedor proveedor : proveedoresLista) {
 						
-						System.out.println("Producto: " + a.getProducto());  //Intentos fallidos de mostrar el producto
-						
+						System.out.println("Producto: " + proveedor.getProducto());  //Intentos fallidos de mostrar el producto
+						//System.out.println("Producto: " + productoLista.get(i).getNombre()+ " Cantidad: " + productoLista.get(i).getCantidad()+ " Precio: " + productoLista.get(i).getPrecio() + " Tiempo de entrega: " + productoLista.get(i).getTiempoDeEntrega()+ " Dias");
 					}
 
 				}
@@ -198,7 +199,7 @@ public class Administrador {
 			System.out.println("Los productos actuales son: ");
 			for(int i = 0; i < productoLista.size(); i++) {
 				//System.out.println("Producto: " + productoLista.get(i).getNombre() + "	" + getCantidadProducto(productoLista.get(i).getNombre())); No funciona el getCantidadProducto, primer imprime el valor y luego lo asigna, entonces devuelve 0
-				System.out.println("Producto: " + productoLista.get(i).getNombre());
+				System.out.println("Producto: " + productoLista.get(i).getNombre()+ " Cantidad: " + productoLista.get(i).getCantidad()+ " Precio: " + productoLista.get(i).getPrecio() + " Tiempo de entrega: " + productoLista.get(i).getTiempoDeEntrega()+ " Dias");
 	
 			}
 		}
