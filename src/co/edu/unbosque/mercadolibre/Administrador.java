@@ -10,7 +10,7 @@ public class Administrador {
 	private boolean hayProductos;
 	private boolean nombreProveedorCoincide;
 	private boolean existeProducto;
-	String buscarProveedor;
+	
 	
 	Scanner scan = new Scanner(System.in);
 	
@@ -22,7 +22,7 @@ public class Administrador {
 	
 	public void newCategory() {
 		System.out.println("Ingrese el tipo de categoría: ");
-		String tipoCategoriaNueva = scan.nextLine();
+		String tipoCategoriaNueva = scan.next();
 		
 		categoriasLista.add(new Categoria(tipoCategoriaNueva));
 		
@@ -38,12 +38,12 @@ public class Administrador {
 			System.out.println("Ingrese la dirección: ");
 			String proveedorNuevoDireccion = scan.next();
 			System.out.println("Ingrese el teléfono: ");
-			String proveedorNuevoTelefono = scan.next();
+			String proveedorNuevoTelefono = scan.next(); //Corregir, se salta
 			System.out.println("Que categoría ofrece: ");
 			String proveedorNuevoCategoria = scan.next();
 			boolean categoriaExiste = false;
 			for(Categoria catAnalizar : categoriasLista) { //Mirar si la categoría ingresada existe
-				if(catAnalizar.getTipoDeCategoria().toLowerCase().equals(proveedorNuevoCategoria)){
+				if(catAnalizar.getTipoDeCategoria().toLowerCase().equals(proveedorNuevoCategoria.toLowerCase())){
 					//System.out.println("Ingrese la cantidad que tiene disponible: "); //Cantidad de que? O.o //Yo tampoco sé :O
 					//int proveedorNuevoCantidad = scan.nextInt();
 					proveedoresLista.add(new Proveedor(proveedorNuevoNombre, proveedorNuevoDireccion, proveedorNuevoTelefono, proveedorNuevoCategoria));
@@ -54,6 +54,7 @@ public class Administrador {
 					categoriaExiste = false;
 				}
 			}
+			
 			if(categoriaExiste == false) {
 				System.out.println("Error, debe ingresar una categoría existente");
 			}
@@ -61,6 +62,7 @@ public class Administrador {
 		}
 	}
 	public void newProduct() { //De pronto el producto lo debe crear el proveedor
+		String nombreProveedorObjetivo = " ";
 		if(proveedoresLista.size() == 0) {
 			System.out.println("No puede crear un producto sin tener proveedores");
 		}
@@ -69,14 +71,19 @@ public class Administrador {
 			String nombreProveedorParaProducto = scan.next();
 			for(Proveedor proveedor : proveedoresLista) { //Comprobar que el proveedor exista
 				if(proveedor.getNombre().toLowerCase().equals(nombreProveedorParaProducto.toLowerCase())) {
+					nombreProveedorObjetivo = proveedor.getNombre();
 					nombreProveedorCoincide = true;
+					break;
 				}
+				
 				else {
 					nombreProveedorCoincide = false;
 				}
 			}
 			
 			if(nombreProveedorCoincide) { //Si el proveedor existe
+				
+				
 				System.out.println("Ingrese el nombre del producto: ");
 				String nombreProductoNuevo = scan.next();
 				System.out.println("Ingrese el precio del producto: ");
@@ -87,6 +94,13 @@ public class Administrador {
 				int cantidadProductoNuevo = scan.nextInt();
 				
 				productoLista.add(new Producto(nombreProductoNuevo, precioProductoNuevo, cantidadProductoNuevo));
+				for(Proveedor proveedor : proveedoresLista) {
+					if(proveedor.getNombre().toLowerCase().equals(nombreProveedorObjetivo)) {
+						proveedor.setProducto(new Producto(nombreProductoNuevo, precioProductoNuevo, cantidadProductoNuevo));
+						break;
+					}
+				}
+			
 			}
 			else if(nombreProveedorCoincide == false) {
 				System.out.println("Error, el proveedor no está registrado");
@@ -98,7 +112,7 @@ public class Administrador {
 	}
 	
 	public void buscarProveedorProductos() {
-		
+		String buscarProveedor;
 		//String buscarProveedor = scan.next();
 		System.out.println("Los proveedores disponibles son: ");
 		for (int i = 0; i < proveedoresLista.size(); i++) {
@@ -107,12 +121,20 @@ public class Administrador {
 			buscarProveedor = scan.next();
 			if(buscarProveedor.equals(proveedoresLista.get(i).getNombre()) || proveedoresLista.get(i).getNombre().contains(buscarProveedor)) {
 				System.out.println("Busca: " + proveedoresLista.get(i).getNombre());
-				
-				for (Proveedor a : proveedoresLista) {
-					System.out.println(a.getProducto());  //Intentos fallidos de mostrar el producto
-					
+				if(productoLista.size() == 0 ) {
+					System.out.println("El proveedor no tiene Productos Registrados");
 				}
-			}
+				else {
+					System.out.println();
+					System.out.println("Stock: ");
+					for (Proveedor a : proveedoresLista) {
+						
+						System.out.println("Producto: " + a.getProducto());  //Intentos fallidos de mostrar el producto
+						
+					}
+
+				}
+							}
 			else {
 				System.out.println("Su busqueda no coincide con nuestros proveedores actuales");
 			}
@@ -129,6 +151,7 @@ public class Administrador {
 		if(this.usrName.equals("admin1234")) {
 			usuarioCorrecto = true;
 		}
+		
 		if(this.password.equals("1234")) {
 			contraseñaCorrecta = true;
 		}

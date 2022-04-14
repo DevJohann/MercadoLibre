@@ -7,9 +7,10 @@ public class Proveedor {
 	private String nombre;
 	private String direccion;
 	private String telefono;
-	private String categoriaQueOfrece;
+	//private String categoriaQueOfrece;
 	//private int cantidadDisponible;
 	private Producto producto;
+	private Categoria categoria;
 	private boolean hayInventario;
 	
 	//métodos de proveedor
@@ -18,7 +19,7 @@ public class Proveedor {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		this.categoriaQueOfrece = categoriaQueOfrece;
+		//this.categoriaQueOfrece = categoriaQueOfrece;
 		//this.cantidadDisponible = cantidadDisponible;
 		//this.producto = producto; //Esto no se puede poner en el constructor
 		//this.hayInventario = hayInventario; //Esto no se puede poner en el constructor
@@ -43,8 +44,14 @@ public class Proveedor {
 		this.telefono = telefono;
 		
 	}
-	public void setcategoriaQueOfrece(String categoriaQueOfrece) {
-		this.categoriaQueOfrece = categoriaQueOfrece;
+	public void setCategoria(Categoria Nuevacategoria) {
+		this.categoria = Nuevacategoria;
+	}
+	//public void setcategoriaQueOfrece(String categoriaQueOfrece) {
+		//this.categoriaQueOfrece = categoriaQueOfrece;
+	//}
+	public void setProducto(Producto Nuevoproducto) {
+		this.producto = Nuevoproducto;
 	}
 	/*public void setcantidadDisponible(int cantidadDisponible) {
 		this.cantidadDisponible = cantidadDisponible;
@@ -54,8 +61,8 @@ public class Proveedor {
 	public String getNombre() {
 		return this.nombre;
 	}
-	public Producto getProducto() {
-		return this.producto;
+	public String getProducto() {
+		return this.producto.getNombre();
 		
 	}
 	

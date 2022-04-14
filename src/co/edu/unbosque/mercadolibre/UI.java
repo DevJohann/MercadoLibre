@@ -29,7 +29,7 @@ public class UI {
 			switch(respuestaMenuPrincipal){
 			case 1:
 				System.out.println("Ingrese el usuario de administrador:");
-				admin.setUsrName(scan.next());
+				admin.setUsrName(scan.next()); //admin.usrName = scan.next()
 				System.out.println("Ingrese su contraseña:");
 				admin.setPassword(scan.next());
 				
@@ -80,6 +80,7 @@ public class UI {
 					break;
 				}
 			case 2:
+				//Terminar procedimientos cliente
 				break;
 			case 0:
 				System.out.println("Ha abandonado nuestro software, los datos no se guardarán");
