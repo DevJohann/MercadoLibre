@@ -8,18 +8,18 @@ public class Proveedor {
 	private String direccion;
 	private String telefono;
 	private String categoriaQueOfrece;
-	private int cantidadDisponible;
+	//private int cantidadDisponible;
 	private Producto producto;
 	private boolean hayInventario;
 	
 	//métodos de proveedor
-	Proveedor(String nombre, String direccion, String telefono, String categoriaQueOfrece, int cantidadDisponible){
+	Proveedor(String nombre, String direccion, String telefono, String categoriaQueOfrece){
 		//this.nombre = nombre; //Se eliminó por redundancia
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.categoriaQueOfrece = categoriaQueOfrece;
-		this.cantidadDisponible = cantidadDisponible;
+		//this.cantidadDisponible = cantidadDisponible;
 		//this.producto = producto; //Esto no se puede poner en el constructor
 		//this.hayInventario = hayInventario; //Esto no se puede poner en el constructor
 	}	
@@ -46,13 +46,17 @@ public class Proveedor {
 	public void setcategoriaQueOfrece(String categoriaQueOfrece) {
 		this.categoriaQueOfrece = categoriaQueOfrece;
 	}
-	public void setcantidadDisponible(int cantidadDisponible) {
+	/*public void setcantidadDisponible(int cantidadDisponible) {
 		this.cantidadDisponible = cantidadDisponible;
 	}
-	
+	*/
 	//Getters
 	public String getNombre() {
 		return this.nombre;
+	}
+	public Producto getProducto() {
+		return this.producto;
+		
 	}
 	
 }

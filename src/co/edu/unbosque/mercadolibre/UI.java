@@ -60,6 +60,11 @@ public class UI {
 						case 3: 
 							admin.newProduct();
 							admin.getProductosActuales();
+							break;//
+						case 4:
+							admin.buscarProveedorProductos(); //Método para buscar proveedores y mostrar sus productos
+							
+							break;
 						}
 					}while(eleccionMenuAdministrador != 0);
 						

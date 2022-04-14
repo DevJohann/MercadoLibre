@@ -10,6 +10,7 @@ public class Administrador {
 	private boolean hayProductos;
 	private boolean nombreProveedorCoincide;
 	private boolean existeProducto;
+	String buscarProveedor;
 	
 	Scanner scan = new Scanner(System.in);
 	
@@ -43,9 +44,9 @@ public class Administrador {
 			boolean categoriaExiste = false;
 			for(Categoria catAnalizar : categoriasLista) { //Mirar si la categoría ingresada existe
 				if(catAnalizar.getTipoDeCategoria().toLowerCase().equals(proveedorNuevoCategoria)){
-					System.out.println("Ingrese la cantidad que tiene disponible: "); //Cantidad de que? O.o
-					int proveedorNuevoCantidad = scan.nextInt();
-					proveedoresLista.add(new Proveedor(proveedorNuevoNombre, proveedorNuevoDireccion, proveedorNuevoTelefono, proveedorNuevoCategoria, proveedorNuevoCantidad));
+					//System.out.println("Ingrese la cantidad que tiene disponible: "); //Cantidad de que? O.o //Yo tampoco sé :O
+					//int proveedorNuevoCantidad = scan.nextInt();
+					proveedoresLista.add(new Proveedor(proveedorNuevoNombre, proveedorNuevoDireccion, proveedorNuevoTelefono, proveedorNuevoCategoria));
 					categoriaExiste = true;
 					break;
 				}
@@ -93,6 +94,32 @@ public class Administrador {
 		}
 		
 		
+		
+	}
+	
+	public void buscarProveedorProductos() {
+		
+		//String buscarProveedor = scan.next();
+		System.out.println("Los proveedores disponibles son: ");
+		for (int i = 0; i < proveedoresLista.size(); i++) {
+			System.out.println(proveedoresLista.get(i).getNombre());
+			System.out.println("Digite el nombre del proveedor que desea consultar: ");
+			buscarProveedor = scan.next();
+			if(buscarProveedor.equals(proveedoresLista.get(i).getNombre()) || proveedoresLista.get(i).getNombre().contains(buscarProveedor)) {
+				System.out.println("Busca: " + proveedoresLista.get(i).getNombre());
+				
+				for (Proveedor a : proveedoresLista) {
+					System.out.println(a.getProducto());  //Intentos fallidos de mostrar el producto
+					
+				}
+			}
+			else {
+				System.out.println("Su busqueda no coincide con nuestros proveedores actuales");
+			}
+		}
+			
+			
+			
 		
 	}
 	public boolean comprobarCredenciales() {
