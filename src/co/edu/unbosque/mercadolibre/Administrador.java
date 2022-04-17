@@ -15,7 +15,7 @@ public class Administrador {
 	Scanner scan = new Scanner(System.in);
 	
 	ArrayList<Categoria> categoriasLista = new ArrayList<Categoria>(); //Lista de categorías
-	ArrayList<Proveedor> proveedoresLista = new ArrayList<Proveedor>();
+	ArrayList<Proveedor> proveedoresLista = new ArrayList<Proveedor>(); 
 	ArrayList<Producto> productoLista = new ArrayList<Producto>();
 	
 	//Métodos
@@ -130,7 +130,8 @@ public class Administrador {
 					System.out.println("Stock: ");
 					for (Proveedor proveedor : proveedoresLista) {
 						
-						System.out.println("Producto: " + proveedor.getProducto());  //Intentos fallidos de mostrar el producto
+						System.out.println("Producto: " + proveedor.getProducto());
+						//Intentos fallidos de mostrar el producto
 						//System.out.println("Producto: " + productoLista.get(i).getNombre()+ " Cantidad: " + productoLista.get(i).getCantidad()+ " Precio: " + productoLista.get(i).getPrecio() + " Tiempo de entrega: " + productoLista.get(i).getTiempoDeEntrega()+ " Dias");
 					}
 

@@ -15,6 +15,7 @@ public class UI {
 	//Declaración de variables
 	int respuestaMenuPrincipal;
 	int eleccionMenuAdministrador;
+	int eleccionMenuCliente;
 	
 	public void mostrarMenuPrincipal() {
 		do {
@@ -80,7 +81,35 @@ public class UI {
 					break;
 				}
 			case 2:
-				//Terminar procedimientos cliente
+				System.out.println("¡Bienvenido a nuestra tienda!");
+				System.out.println();
+				
+				do {
+					System.out.println("Opciones: ");
+					System.out.println("1. Crear orden de compra");
+					System.out.println("2. Ver el historial");
+					System.out.println("0. Volver al menú principal");
+					System.out.println("Escoja: ");
+					eleccionMenuCliente = scan.nextInt();
+					
+					switch(eleccionMenuCliente) {
+					case 1:
+						cliente.crearOrden();
+						//Método para comprar
+						break;
+					case 2:
+						cliente.getHistorial();
+						//Método para mostrar el historial
+						break;
+					case 0:
+						System.out.println("Acaba de abandonar el menú de cliente");
+						System.out.println();
+						break;
+					default:
+						System.out.println("Digite una opción válida");
+					}
+				}
+				while (eleccionMenuCliente != 0);
 				break;
 			case 0:
 				System.out.println("Ha abandonado nuestro software, los datos no se guardarán");
