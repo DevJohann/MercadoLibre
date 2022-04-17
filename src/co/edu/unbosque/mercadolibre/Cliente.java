@@ -18,13 +18,13 @@ public class Cliente {
 		this.productCategory = productCategory;
 	}
 	public void crearOrden () { //Este método se utilizará para el primer punto (conteo y compra de productos)
-		/*System.out.println("Digite su nombre: ");
+		System.out.println("Digite su nombre: ");
 		nombreDeUsuario = scan.nextLine();
 		System.out.println("¿De qué categoría busca su producto?");
 		productCategory = scan.nextLine();
 		System.out.println("¿Qué producto desea comprar?");
 		productName = scan.nextLine();
-		clienteList.add(new Cliente());*/
+		clienteList.add(new Cliente());
 	}
 	public void getHistorial() {//Mostrar lo que el usuario compró buscando en el ArrayList
 		/*String buscarHistorial;
