@@ -235,6 +235,10 @@ public class Administrador {
 		System.out.println();
 	}
 	
+	//getSizeProveedores
+	//getSizeProductos //Para comprobar que hayan obetos en los arrayList disponibles para comprar por el cliente (Llamados desde cliente)
+	//getSizeCategorías
+	
 	/* No sirve :)
 	public int getCantidadProducto(String nombreProductoAConsultar) {
 	

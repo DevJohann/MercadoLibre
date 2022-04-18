@@ -18,6 +18,7 @@ public class Cliente {
 		this.productCategory = productCategory;
 	}
 	public void crearOrden () { //Este método se utilizará para el primer punto (conteo y compra de productos)
+		//Revisar primero que haya inventario, con los getSizeProveedores,... (if getSizeProveedores == 0)
 		System.out.println("Digite su nombre: ");
 		nombreDeUsuario = scan.nextLine();
 		System.out.println("¿De qué categoría busca su producto?");
