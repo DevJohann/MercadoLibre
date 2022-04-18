@@ -24,7 +24,9 @@ public class Proveedor {
 		//this.producto = producto; //Esto no se puede poner en el constructor
 		//this.hayInventario = hayInventario; //Esto no se puede poner en el constructor
 	}	
-	
+	public void eliminarExistencia() {
+		producto.restarCantidadProducto();
+	}
 	public Proveedor() {
 		// TODO Auto-generated constructor stub
 	}

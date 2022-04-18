@@ -20,8 +20,8 @@ public class Producto {
 	public void agregarInventario() {
 		
 	}
-	public void eliminarInventario() {
-		
+	public void restarCantidadProducto() {
+		this.cantidad--;
 	}
 	
 	//Getters

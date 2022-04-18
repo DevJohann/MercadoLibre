@@ -63,9 +63,35 @@ public class UI {
 							admin.getProductosActuales();
 							break;//
 						case 4:
-							admin.buscarProveedorProductos(); //Método para buscar proveedores y mostrar sus productos
 							
-							break;
+							int eleccionConsulta = 0;
+							do {
+								System.out.println("1. Consultar proveedor");
+								System.out.println("2. Consultar producto");
+								System.out.println("0. Volver");
+								eleccionConsulta = scan.nextInt();
+								
+								switch(eleccionConsulta) {
+								case 1:
+									admin.buscarProveedorProductos();
+									break;
+								case 2:
+									System.out.println("Cuál es el nombre que desea buscar: ");
+									String nombreProductoBuscar = scan.next();
+									admin.buscarProductos(nombreProductoBuscar);
+									break;
+								case 0:
+									break;
+								
+								default:
+									System.out.println("Error, opción inválida");
+									break;
+								}
+							
+								
+							}	while(eleccionConsulta != 0);
+							
+						break;
 						}
 					}while(eleccionMenuAdministrador != 0);
 						
@@ -94,7 +120,23 @@ public class UI {
 					
 					switch(eleccionMenuCliente) {
 					case 1:
-						cliente.crearOrden();
+						if (admin.getProveedoresSize() == 0 ) {
+							// no va a hacer orden
+							System.out.println("Error la tienda está vacía");
+						}
+						else {
+							// si se va a hacer orden
+							cliente.crearOrden();
+							if(admin.comprobarExistenciaProducto(cliente.getNombre())) {
+								System.out.println("Orden realizada correctamente");
+								admin.disminuirCantidadProducto(cliente.getNombreProveedorCliente());
+							}
+							else {
+								System.out.println("Error el producto no existe");
+							}
+						}
+						
+						
 						//Método para comprar
 						break;
 					case 2:

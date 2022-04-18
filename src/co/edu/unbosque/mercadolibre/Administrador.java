@@ -19,7 +19,25 @@ public class Administrador {
 	ArrayList<Producto> productoLista = new ArrayList<Producto>();
 	
 	//Métodos
-	
+	public boolean comprobarExistenciaProducto(String nombreProducto) {
+		boolean retorno = false;
+		for (Producto producto : productoLista) {
+			if(producto.getNombre().toLowerCase().contains(nombreProducto.toLowerCase())) {
+				retorno = true;
+				break;
+			}
+		}
+		return retorno;
+	}
+	public void disminuirCantidadProducto(String nombreProveedorBuscar) {
+		 
+		for(Producto producto : productoLista) {
+			if(producto.getNombre().toLowerCase().contains(nombreProveedorBuscar.toLowerCase())) {
+				producto.restarCantidadProducto();
+			}
+			
+		}
+	}
 	public void newCategory() {
 		System.out.println("Ingrese el tipo de categoría: ");
 		String tipoCategoriaNueva = scan.next();
@@ -111,7 +129,13 @@ public class Administrador {
 		
 		
 	}
-	
+	public void buscarProductos(String NombreProductoBuscar) {
+		for(Producto producto : productoLista) {
+			if(producto.getNombre().toLowerCase().contains(NombreProductoBuscar)) {
+				System.out.println("Nombre: " + producto.getNombre() + " Cantidad: " + producto.getCantidad() + " Precio: " + producto.getPrecio() + " Tiempo: " + producto.getTiempoDeEntrega());
+			}
+		} 
+	}
 	public void buscarProveedorProductos() {
 		String buscarProveedor;
 		//String buscarProveedor = scan.next();
@@ -238,6 +262,9 @@ public class Administrador {
 	//getSizeProveedores
 	//getSizeProductos //Para comprobar que hayan obetos en los arrayList disponibles para comprar por el cliente (Llamados desde cliente)
 	//getSizeCategorías
+	public int getProveedoresSize () {
+		return proveedoresLista.size();
+	}
 	
 	/* No sirve :)
 	public int getCantidadProducto(String nombreProductoAConsultar) {
