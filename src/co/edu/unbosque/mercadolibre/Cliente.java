@@ -29,8 +29,17 @@ public class Cliente {
 		productName = scan.next();
 		System.out.println("Ingresa el nombre del proveedor: ");
 		nombreProveedor = scan.next();
-		ordenesList.add(new Orden(productName));
+		//ordenesList.add(new Orden(productName));
 	}
+	public void comprobarOrdenCorrecta() {
+		if(ordenCorrecta) {
+			ordenesList.add(new Orden(productName));
+		}
+		else {
+			System.out.println("Orden no añadida al historial");
+		}
+	}
+	
 	
 	//Setters
 	public void setOrdenCorrecta(boolean value) {

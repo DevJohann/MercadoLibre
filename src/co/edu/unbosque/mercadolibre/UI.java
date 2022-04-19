@@ -136,6 +136,7 @@ public class UI {
 								System.out.println("Error el producto no existe");
 								cliente.setOrdenCorrecta(false);
 							}
+							cliente.comprobarOrdenCorrecta();
 						}
 						
 						
