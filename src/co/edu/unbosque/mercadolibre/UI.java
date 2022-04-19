@@ -130,9 +130,11 @@ public class UI {
 							if(admin.comprobarExistenciaProducto(cliente.getNombre())) {
 								System.out.println("Orden realizada correctamente");
 								admin.disminuirCantidadProducto(cliente.getNombreProveedorCliente());
+								cliente.setOrdenCorrecta(true);
 							}
 							else {
 								System.out.println("Error el producto no existe");
+								cliente.setOrdenCorrecta(false);
 							}
 						}
 						

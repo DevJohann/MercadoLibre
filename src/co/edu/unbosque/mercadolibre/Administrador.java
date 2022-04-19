@@ -61,7 +61,7 @@ public class Administrador {
 			String proveedorNuevoCategoria = scan.next();
 			boolean categoriaExiste = false;
 			for(Categoria catAnalizar : categoriasLista) { //Mirar si la categoría ingresada existe
-				if(catAnalizar.getTipoDeCategoria().toLowerCase().equals(proveedorNuevoCategoria.toLowerCase())){
+				if(catAnalizar.getTipoDeCategoria().toLowerCase().contains(proveedorNuevoCategoria.toLowerCase())){
 					//System.out.println("Ingrese la cantidad que tiene disponible: "); //Cantidad de que? O.o //Yo tampoco sé :O
 					//int proveedorNuevoCantidad = scan.nextInt();
 					proveedoresLista.add(new Proveedor(proveedorNuevoNombre, proveedorNuevoDireccion, proveedorNuevoTelefono, proveedorNuevoCategoria));
@@ -88,7 +88,7 @@ public class Administrador {
 			System.out.println("Ingrese el nombre del proveedor: ");
 			String nombreProveedorParaProducto = scan.next();
 			for(Proveedor proveedor : proveedoresLista) { //Comprobar que el proveedor exista
-				if(proveedor.getNombre().toLowerCase().equals(nombreProveedorParaProducto.toLowerCase())) {
+				if(proveedor.getNombre().toLowerCase().contains(nombreProveedorParaProducto.toLowerCase())) {
 					nombreProveedorObjetivo = proveedor.getNombre();
 					nombreProveedorCoincide = true;
 					break;
@@ -114,7 +114,7 @@ public class Administrador {
 				int tiempoDeEntrega = scan.nextInt();
 				productoLista.add(new Producto(nombreProductoNuevo, precioProductoNuevo, cantidadProductoNuevo, tiempoDeEntrega));
 				for(Proveedor proveedor : proveedoresLista) {
-					if(proveedor.getNombre().toLowerCase().equals(nombreProveedorObjetivo)) {
+					if(proveedor.getNombre().toLowerCase().contains(nombreProveedorObjetivo)) {
 						proveedor.setProducto(new Producto(nombreProductoNuevo, precioProductoNuevo, cantidadProductoNuevo, tiempoDeEntrega));
 						break;
 					}
