@@ -137,6 +137,7 @@ public class UI {
 								cliente.setOrdenCorrecta(false);
 							}
 							cliente.comprobarOrdenCorrecta();
+							cliente.actualizarArray(admin.productoLista);
 						}
 						
 						

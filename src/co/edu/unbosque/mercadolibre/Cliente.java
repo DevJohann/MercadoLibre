@@ -12,11 +12,15 @@ public class Cliente {
 	
 	Scanner scan = new Scanner(System.in);
 	
+	ArrayList<Producto> productosListCliente = new ArrayList<Producto>();
 	ArrayList<Orden> ordenesList = new ArrayList<Orden>();
 	
 	public void comprarProductos(String productName, String productCategory) {
 		this.productName = productName;
 		this.productCategory = productCategory;
+	}
+	public void actualizarArray(ArrayList<Producto> productosAdmin) {
+		productosListCliente.addAll(productosAdmin);
 	}
 	public void crearOrden () { //Este método se utilizará para el primer punto (conteo y compra de productos)
 		//Revisar primero que haya inventario, con los getSizeProveedores,... (if getSizeProveedores == 0)
@@ -30,6 +34,15 @@ public class Cliente {
 		System.out.println("Ingresa el nombre del proveedor: ");
 		nombreProveedor = scan.next();
 		//ordenesList.add(new Orden(productName));
+		System.out.println("Detalles de la orden: ");
+		for(Producto producto : productosListCliente) {
+			if(producto.getNombre().toLowerCase().contains(productName)) {
+				System.out.println("Producto: " + producto.getNombre());
+				System.out.println("Precio: " + producto.getPrecio());
+				System.out.println("Tiempo de entrega: " + producto.getTiempoDeEntrega());
+				
+			}
+		}
 	}
 	public void comprobarOrdenCorrecta() {
 		if(ordenCorrecta) {
