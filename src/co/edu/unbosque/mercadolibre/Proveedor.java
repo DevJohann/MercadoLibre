@@ -27,9 +27,6 @@ public class Proveedor {
 	public void eliminarExistencia() {
 		producto.restarCantidadProducto();
 	}
-	public Proveedor() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public void vender() {
 		
